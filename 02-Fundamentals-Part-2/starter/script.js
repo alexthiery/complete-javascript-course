@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -70,34 +72,123 @@ GOOD LUCK 😀
 
 // console.log(tips);
 
-//  objects in javascript are specified as key value pairs
-const alex = {
-  name: "alex",
-  surname: "thiery",
-  town: "sheffield",
+// //  objects in javascript are specified as key value pairs
+// const alex = {
+//   name: "alex",
+//   surname: "thiery",
+//   town: "sheffield",
+// };
+
+// //  they can be accessed through both dot and bracket notation
+
+// // console.log(alex.town);
+
+// // console.log(alex["to" + "wn"]);
+
+// //  this is really cool. prompt will make a prompt window pop up in the browser. then depending on the value which is entered, this will be assigned to the variable name (in this instance interested in) - this can then be used to subset the object and return the associated value
+// const interestedIn = prompt(
+//   "which property to you want to know about alex? name, surname or town?"
+// );
+
+// console.log(alex[interestedIn]);
+
+// console.log(
+//   alex[interestedIn]
+//     ? alex[interestedIn]
+//     : `there is no property called ${interestedIn}`
+// );
+
+// //  you can add new values using dot and bracket notation as well
+
+// alex.email = "alexthiery1@gmail.com";
+
+// console.log(alex.email);
+
+///////////////////////////////////////
+// Coding Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😀
+*/
+
+// const Alex = {
+//   fullName: "Alex Thiery",
+//   mass: 89,
+//   height: 1.97,
+//   calcBMI: function () {
+//     this.BMI = this.mass / this.height ** 2;
+//     return this.BMI;
+//   },
+// };
+
+// const Harriet = {
+//   fullName: "Harriet Thiery",
+//   mass: 60,
+//   height: 1.65,
+//   calcBMI: function () {
+//     this.BMI = this.mass / this.height ** 2;
+//     return this.BMI;
+//   },
+// };
+
+// Alex.calcBMI() > Harriet.calcBMI()
+//   ? console.log(
+//       `${Alex.fullName}'s BMI (${Alex.BMI}) is higher than ${Harriet.fullName}'s (${Harriet.BMI})`
+//     )
+//   : console.log(
+//       `${Harriet.fullName}'s BMI (${Harriet.BMI}) is higher than ${Alex.fullName}'s (${Alex.BMI})`
+//     );
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/*
+Let's improve Steven's tip calculator even more, this time using loops!
+
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
+
+TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+
+HINT: Call calcTip in the loop and use the push method to add values to the tips and totals arrays 😉
+
+4. BONUS: Write a function 'calcAverage' which takes an array called 'arr' as an argument. This function calculates the average of all numbers in the given array. This is a DIFFICULT challenge (we haven't done this before)! Here is how to solve it:
+  4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
+  4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
+  4.3. Call the function with the 'totals' array
+
+GOOD LUCK 😀
+*/
+
+const bills = [22, 34, 12, 3, 345, 2, 3, 244, 24, 23, 21, 5, 3, 1, 23, 534, 5];
+
+let totals = [];
+let tips = [];
+
+const calcTip = (input) => {
+  return input >= 50 && input <= 300 ? input * 0.15 : input * 0.2;
 };
 
-//  they can be accessed through both dot and bracket notation
+for (i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(bills[i] + tips[i]);
+}
 
-// console.log(alex.town);
+console.log(totals);
 
-// console.log(alex["to" + "wn"]);
+// console.log(calcTip(55));
 
-//  this is really cool. prompt will make a prompt window pop up in the browser. then depending on the value which is entered, this will be assigned to the variable name (in this instance interested in) - this can then be used to subset the object and return the associated value
-const interestedIn = prompt(
-  "which property to you want to know about alex? name, surname or town?"
-);
+// let testData = [125, 555, 44];
 
-console.log(alex[interestedIn]);
+// const tips = [calcTip(testData[0]), calcTip(testData[1]), calcTip(testData[2])];
 
-console.log(
-  alex[interestedIn]
-    ? alex[interestedIn]
-    : `there is no property called ${interestedIn}`
-);
-
-//  you can add new values using dot and bracket notation as well
-
-alex.email = "alexthiery1@gmail.com";
-
-console.log(alex.email);
+// console.log(tips);
