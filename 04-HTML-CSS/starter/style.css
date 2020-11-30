@@ -1,0 +1,28 @@
+/*  by default some elements get some margins without defining them - you can do a global reset */
+• {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(255, 252, 227);
+  font-family: Arial;
+  font-size: 20px;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 30;
+}
+
+/* select based on class name */
+.first {
+  color: red;
+}
+
+/* select based on ID  */
+#your-name {
+  background-color: rgb(170, 255, 215);
+  border: 5px solid red;
+}
